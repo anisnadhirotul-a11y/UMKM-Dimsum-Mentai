@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk - UMKM Dimsum Mentai</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Dimsum Mentai</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+        <h2>Profil Usaha Kami</h2>
+        <p>Kami berdiri sejak tahun 2021, berkomitmen menghadirkan dimsum mentai terbaik langsung dari dapur kami.</p>
+  
+        <h2>Produk Unggulan Kami</h2>
+        <p>Berikut daftar produk dimsum Mentai yang kami sediakan:</p>
+
+        <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+            <tr>
+                <th style="text-align: center; background-color: #ea7536;">Produk</th>
+                <th style="text-align: center; background-color: #ea7536;">Ukuran</th>
+                <th style="text-align: center; background-color: #ea7536;">Harga</th>
+                <th style="text-align: center; background-color: #ea7536;">Jenis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dimsum Original</td>
+                <td>4 pcs</td>
+                <td>Rp 13.000</td>
+                <td rowspan="3">Daging Ayam dan Udang</td>
+            </tr>
+            <tr>
+                <td>Dimsum Mentai</td>
+                <td>6 pcs</td>
+                <td>Rp 18.000</td>
+            </tr>
+            <tr>
+                <td>Dimsum Keju Goreng</td>
+                <td>1 pcs</td>
+                <td>Rp 6.000</td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center; background-color: #ea7536; color: white;">
+                    Semua harga sudah termasuk PPN
+                </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <h3>Profil Produk</h3>
+        <div class="card">
+        <img src="images/mentai.jpeg" alt="Dimsum Mentai" width="25" />
+        <p>Lumer creamy, gurih smoky, bikin nagih di setiap gigitan!</p>
+        </section>
+
+        <section>
+        <h3>Kategori Usia Pelanggan</h3>
+        <p>Masukkan usia Anda untuk mengetahui kategori:</p>
+        <input type="number" id="usia" placeholder="Masukkan usia Anda">
+        <button onclick="cekUsia()">Cek Kategori</button>
+        <p id="hasilUsia" style="font-weight: bold;"></p>
+        </section>
+
+        <section>
+        <h3>Testimoni Pelanggan</h3>
+        <div id="testimoni"></div>
+        </section>
+
+        <section>
+        <h3>Hitung Total Belanja</h3>
+        <form onsubmit="event.preventDefault(); tampilkanTotal();">
+            <label>Harga (Rp):</label><br>
+            <input type="number" id="harga" placeholder="Masukkan harga produk"><br><br>
+            <label>Jumlah:</label><br>
+            <input type="number" id="jumlah" placeholder="Masukkan jumlah produk"><br><br>
+            <button type="submit">Hitung Total</button>
+        </form>
+        <p id="hasilTotal" style="font-weight:bold;"></p>
+        </section>
+
+        <section>
+        <h3>Dengarkan Cerita Kami</h3>
+        <audio controls>
+            <source src="audio/audiodimsum.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung audio.
+        </audio>
+        </section>
+
+        <section>
+        <h3>Video Dimsum Mentai</h3>
+        <video width="320" height="240" controls>
+            <source src="video/video.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video.
+        </video>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Dimsum Mentai. Hak cipta dilindungi.</p>
+    </footer>
+
+    <script>
+        function cekUsia() {
+        const usia = parseInt(document.getElementById("usia").value);
+        let kategori = "";
+
+        if (isNaN(usia) || usia <= 0) {
+            kategori = "Masukkan usia yang benar!";
+        } else if (usia < 13) {
+            kategori = "Anak-anak";
+        } else if (usia >= 13 && usia <= 17) {
+            kategori = "Remaja";
+        } else if (usia >= 18 && usia <= 60) {
+            kategori = "Dewasa";
+        } else {
+            kategori = "Lansia";
+        }
+
+        document.getElementById("hasilUsia").textContent = "Kategori Anda: " + kategori;
+        }
+
+        const testimoniList = [
+        "Dimsum-nya lembut dan saus mentainya mantap!",
+        "Pelayanan cepat, harga bersahabat.",
+        "Anak-anak saya suka banget sama varian keju!",
+        "Mentainya creamy dan smoky banget, juara!",
+        "Sudah langganan, rasanya selalu konsisten!"
+        ];
+
+        const testimoniDiv = document.getElementById("testimoni");
+        testimoniList.forEach((t, i) => {
+        const p = document.createElement("p");
+        p.textContent = (i + 1) + ". " + t;
+        testimoniDiv.appendChild(p);
+        });
+
+        function hitungTotal(harga, jumlah) {
+        return harga * jumlah;
+        }
+
+        function tampilkanTotal() {
+        const harga = parseInt(document.getElementById("harga").value);
+        const jumlah = parseInt(document.getElementById("jumlah").value);
+
+        if (isNaN(harga) || isNaN(jumlah) || harga <= 0 || jumlah <= 0) {
+            alert("Masukkan data yang valid!");
+            return;
+        }
+
+        const total = hitungTotal(harga, jumlah);
+        document.getElementById("hasilTotal").textContent =
+            "Total Belanja Anda: Rp " + total.toLocaleString("id-ID");
+        }
+    </script>
+    </body>
+    </html>

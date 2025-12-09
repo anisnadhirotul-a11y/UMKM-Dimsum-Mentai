@@ -1,0 +1,182 @@
+/* ===========================
+   GLOBAL STYLE
+=========================== */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #FFF7EE;
+    color: #D9792A;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===========================
+   HEADER (oren utama)
+=========================== */
+header {
+    background-color: #D9792A; /* oren */
+    color: white;
+    padding: 18px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ===========================
+   NAVBAR (coklat branding)
+=========================== */
+nav {
+    background-color: #D9792A; /* coklat */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 12px 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #DE9E4C;              /* oren highlight */
+    border-bottom: 2px solid #DE9E4C;
+}
+
+/* ===========================
+   TITLE HALAMAN
+=========================== */
+h2 {
+    color: #D9792A;              /* coklat */
+    margin-left: 40px;
+}
+
+/* ===========================
+   GALERI - Kartu Foto
+=========================== */
+.galeri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    max-width: 100px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #E7C7A1;   /* border krem */
+    box-shadow: 0 4px 12px rgba(217,121,42,0.15); /* shadow oren lembut */
+    padding: 12px;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(217,121,42,0.28); /* efek hover warna oren */
+}
+
+.card img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* ===========================
+   TABLE & TABEL PRODUK
+=========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th {
+    background-color: #D9792A; /* oren utama */
+    color: white;
+    padding: 12px;
+}
+
+td {
+    border: 1px solid #C58A55; /* coklat muda */
+    padding: 12px;
+}
+
+/* ===========================
+   FORM
+=========================== */
+form {
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(107,62,38,0.15);
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #CDA788;
+    border-radius: 6px;
+}
+
+form button[type="submit"] {
+    background-color: #D9792A;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #B86720;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background-color: #D9792A;  /* coklat */
+    color: #FFF9F3;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .galeri {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+}
+
+.profil-produk-img {
+    max-width: 50px;   /* ukuran bisa diubah */
+    width: 50%;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}

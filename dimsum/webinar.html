@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=devise-eidth, initial-scale=1.0"/>
+        <title>Kontak - Dimsum Mentai</title>
+        <link rel="stylesheet" href="style.css"/>
+        <style>
+            form{
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        form label{
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #e282af;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form texarea,
+        form select{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        form input[type="checbox"]{
+            margin-right: 5px;
+        }
+
+        form button[type="submit"]{
+            background-color: #df2296;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: backgorund 0.3s ease;
+        }
+
+        form button[type="submit"]:hover{
+            background-color: #cf3dab;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Dimsum Mentai</h1>
+            <img src="images/logodimsum.jpg" alt="Dimsum Mentai" width="500"/>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                    <li><a href="Produk.html">Produk</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+    <h2>Pendaftaran Webinar Promosi Produk</h2>
+
+    <form id="formWebinar">
+
+        <!-- Nama -->
+        <label>Nama Lengkap:</label>
+        <input type="text" id="nama">
+        <small class="error-msg" id="errNama">*Nama minimal 3 karakter</small><br><br>
+
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="email" id="email">
+        <small class="error-msg" id="errEmail">*Email tidak valid atau menggunakan domain yahoo.com</small><br><br>
+
+        <!-- No HP -->
+        <label>No HP:</label>
+        <input type="text" id="nohp">
+        <small class="error-msg" id="errHP">*Nomor HP harus angka</small><br><br>
+
+        <!-- Webinar topic -->
+        <label>Pilih Topik Webinar:</label>
+        <select id="topik">
+            <option value="">-- Pilih Topik --</option>
+            <option value="strategi">Strategi Promosi UMKM</option>
+            <option value="desain">Desain Branding Produk</option>
+            <option value="digital">Digital Marketing Dasar</option>
+        </select>
+        <small class="error-msg" id="errTopik">*Pilih salah satu topik</small><br><br>
+
+        <div class="checkbox-container">
+        <input type="checkbox" id="persetujuan">
+        <label for="persetujuan">Saya menyetujui syarat & ketentuan</label>
+        </div>
+        <small class="error-msg" id="errSetuju">*Wajib menyetujui dahulu</small><br><br>
+
+        <button type="submit">Daftar Sekarang</button>
+
+        <div class="success-box" id="successMsg">
+            Pendaftaran berhasil! Kami akan menghubungi Anda melalui email.
+        </div>
+    </form>
+        </main>
+
+<script>
+    const nama = document.getElementById("nama");
+    const email = document.getElementById("email");
+    const nohp = document.getElementById("nohp");
+    const topik = document.getElementById("topik");
+    const setuju = document.getElementById("persetujuan");
+    const successMsg = document.getElementById("successMsg");
+
+    // === Validasi fungsi ===
+    function validateNama() {
+        if (nama.value.trim().length < 3) {
+            showError(nama, "errNama");
+            return false;
+        }
+        hideError(nama, "errNama");
+        return true;
+    }
+
+    function validateEmail() {
+        const val = email.value.trim();
+        const validFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!validFormat.test(val) || val.endsWith("@yahoo.com")) {
+            showError(email, "errEmail");
+            return false;
+        }
+        hideError(email, "errEmail");
+        return true;
+    }
+
+    function validateHP() {
+        if (!/^[0-9]+$/.test(nohp.value.trim())) {
+            showError(nohp, "errHP");
+            return false;
+        }
+        hideError(nohp, "errHP");
+        return true;
+    }
+
+    function validateTopik() {
+        if (topik.value === "") {
+            showError(topik, "errTopik");
+            return false;
+        }
+        hideError(topik, "errTopik");
+        return true;
+    }
+
+    function validateSetuju() {
+        if (!setuju.checked) {
+            document.getElementById("errSetuju").style.display = "block";
+            return false;
+        }
+        document.getElementById("errSetuju").style.display = "none";
+        return true;
+    }
+
+    // === Helper error handler ===
+    function showError(input, id) {
+        input.classList.add("error");
+        document.getElementById(id).style.display = "block";
+    }
+
+    function hideError(input, id) {
+        input.classList.remove("error");
+        document.getElementById(id).style.display = "none";
+    }
+
+    // === VALIDASI REAL-TIME ===
+    nama.addEventListener("input", validateNama);
+    email.addEventListener("input", validateEmail);
+    nohp.addEventListener("input", validateHP);
+    topik.addEventListener("change", validateTopik);
+    setuju.addEventListener("change", validateSetuju);
+
+    // === VALIDASI SAAT SUBMIT ===
+    document.getElementById("formWebinar").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let isValid =
+            validateNama() &
+            validateEmail() &
+            validateHP() &
+            validateTopik() &
+            validateSetuju();
+
+        if (isValid) {
+            successMsg.style.display = "block";
+            this.reset();
+        }
+    });
+</script>
+
+</body>
+</html>
