@@ -1,131 +1,141 @@
-/* ===========================
-   GLOBAL STYLE
-=========================== */
+/* ================= GLOBAL ================= */
 body {
     font-family: "Poppins", sans-serif;
     background-color: #FFF7EE;
     color: #D9792A;
+    font-size: 18px;        
+    line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* ===========================
-   HEADER (oren utama)
-=========================== */
+/* ================= HEADER ================= */
 header {
-    background-color: #D9792A; /* oren */
+    background-color: #D9792A;
     color: white;
-    padding: 18px 0;
+    padding: 22px 0;
     text-align: center;
     font-weight: bold;
 }
 
-/* ===========================
-   NAVBAR (coklat branding)
-=========================== */
+header h1 {
+    font-size: 34px;
+    margin: 0;
+}
+
+/* ================= NAVBAR ================= */
 nav {
-    background-color: #D9792A; /* coklat */
+    background-color: #D9792A;
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 25px;
-    padding: 12px 0;
+    gap: 28px;
+    padding: 14px 0;
     margin: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
+    font-size: 18px;
     font-weight: bold;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
     border-bottom: 2px solid transparent;
     transition: 0.3s ease;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: #DE9E4C;              /* oren highlight */
-    border-bottom: 2px solid #DE9E4C;
+    color: #FFE1B8;
+    border-bottom-color: #FFE1B8;
 }
 
-/* ===========================
-   TITLE HALAMAN
-=========================== */
+/* ================= HEADING ================= */
 h2 {
-    color: #D9792A;              /* coklat */
-    margin-left: 40px;
+    font-size: 28px;
+    margin: 40px 0 15px;
 }
 
-/* ===========================
-   GALERI - Kartu Foto
-=========================== */
+h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+p, li {
+    font-size: 18px;
+}
+
+/* ================= GALERI ================= */
 .galeri {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
-    max-width: 100px;
-    margin: 0 auto;
-    padding: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1100px;     
+    margin: auto;
+    padding: 40px 20px;
 }
 
 .card {
     background-color: #fff;
-    border-radius: 12px;
-    border: 1px solid #E7C7A1;   /* border krem */
-    box-shadow: 0 4px 12px rgba(217,121,42,0.15); /* shadow oren lembut */
-    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid #E7C7A1;
+    box-shadow: 0 4px 12px rgba(217,121,42,0.15);
+    padding: 18px;
     text-align: center;
     transition: 0.25s ease;
 }
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(217,121,42,0.28); /* efek hover warna oren */
+    box-shadow: 0 8px 20px rgba(217,121,42,0.3);
 }
 
 .card img {
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
+    width: 100%;         
+    max-width: 180px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
-/* ===========================
-   TABLE & TABEL PRODUK
-=========================== */
+/* ================= TABLE ================= */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px auto;
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+th, td {
+    padding: 14px;
+    border: 1px solid #C58A55;
+    text-align: center;
 }
 
 th {
-    background-color: #D9792A; /* oren utama */
+    background-color: #D9792A;
     color: white;
-    padding: 12px;
+    font-size: 19px;
 }
 
-td {
-    border: 1px solid #C58A55; /* coklat muda */
-    padding: 12px;
-}
-
-/* ===========================
-   FORM
-=========================== */
+/* ================= FORM ================= */
 form {
     max-width: 600px;
     background: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(107,62,38,0.15);
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(107,62,38,0.15);
+}
+
+form label {
+    font-size: 17px;
+    font-weight: 600;
 }
 
 form input,
@@ -133,50 +143,76 @@ form textarea,
 form select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     border: 1px solid #CDA788;
     border-radius: 6px;
+    font-size: 16px;
 }
 
-form button[type="submit"] {
+form button {
     background-color: #D9792A;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 22px;
     border: none;
     border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s ease;
 }
 
-form button[type="submit"]:hover {
+form button:hover {
     background-color: #B86720;
 }
 
-/* ===========================
-   FOOTER
-=========================== */
+/* ================= PROFIL PRODUK IMAGE ================= */
+.profil-produk-img {
+    max-width: 300px;      
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+    margin: 25px auto;
+}
+
+/* ================= FOOTER ================= */
 footer {
-    background-color: #D9792A;  /* coklat */
+    background-color: #D9792A;
     color: #FFF9F3;
-    padding: 20px;
+    padding: 22px;
     text-align: center;
     margin-top: 40px;
-    font-weight: bold;
+    font-size: 16px;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* ================= LOGO NAVBAR ================= */
+.navbar .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.hero-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-hero {
+    height: 130px;          /* ukuran logo */
+    width: auto;
+    border-radius: 8px;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-    .galeri {
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    }
-}
+    body { font-size: 17px; }
 
-.profil-produk-img {
-    max-width: 50px;   /* ukuran bisa diubah */
-    width: 50%;
-    border-radius: 12px;
-    display: block;
-    margin: 0 auto;
+    header h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
 }
